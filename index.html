@@ -1,14 +1,67 @@
-<<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<
+    <title>Vivara Party Edition - Eletrofunk Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts para tipografia elegante e moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Meu blog tech</h1>
-    <p>Vou compartilhar conhecimentos sobre tecnologia e programação</p>
-</body>
-</html>
-<title>Blog</title>
+
+    <!-- Cabeçalho da Loja -->
+    <header class="header">
+        <div class="logo">VIVARA</div>
+        <p class="subtitle">Party Edition &bull; Eletrofunk Vibes</p>
+    </header>
+
+    <!-- Seção Principal / Vitrine de Festa -->
+    <main class="main-content">
+        <section class="hero">
+            <h1>Brilhe na Pista</h1>
+            <p>A alta joalheria encontra a energia vibrante do eletrofunk. Sinta a batida, escolha seu estilo e curta a festa.</p>
+            
+            <!-- Player de Eletrofunk -->
+            <div class="music-box">
+                <span class="music-label">🎶 Som da Loja: Eletrofunk Mix</span>
+                <!-- Substitua o link do src por uma música de sua preferência ou deixe o elemento de áudio pronto -->
+                <audio id="electroPlayer" controls loop>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    Seu navegador não suporta o elemento de áudio.
+                </audio>
+            </div>
+
+            <button class="cta-button" onclick="document.getElementById('electroPlayer').play()">Ligar o Som da Festa</button>
+        </section>
+
+        <!-- Vitrine de Destaques -->
+        <section class="vitrine">
+            <h2>Coleções para Destacar na Noite</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-tag">Lançamento</div>
+                    <h3>Anel Neon Glow</h3>
+                    <p>Prata com detalhes reflexivos sob luz negra.</p>
+                    <span class="price">R$ 890,00</span>
+                </div>
+                <div class="product-card">
+                    <div class="product-tag">Exclusivo</div>
+                    <h3>Brinco Bass Drop</h3>
+                    <p>Brilho intenso inspirado nas ondas sonoras.</p>
+                    <span class="price">R$ 1.250,00</span>
+                </div>
+                <div class="product-card">
+                    <div class="product-tag">Limitado</div>
+                    <h3>Colar Beats Gold</h3>
+                    <p>Ouro 18k com design futurista e moderno.</p>
+                    <span class="price">R$ 3.400,00</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>&copy; 2026 Vivara - Todos os direitos reservados. Experiência Eletrofunk Party.</p>
+    </footer>v
