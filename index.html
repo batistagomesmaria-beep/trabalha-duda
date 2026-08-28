@@ -1,26 +1,290 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<style>
-     header{
-         background-color: rgb(157, 82, 228);
-    }
-     style
-head
-body
 
-body
-html
-header
-      < h1>blog de dudas
-      < p>vomos falar de comida
-    </ header>
-    < feConvolveMatrix>
+    <title>Medicina - Corpo Humano</title>
 
+    <link rel="stylesheet" href="style.css">
+</head>
 
-   
-   
-    
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="topo">
+        <div class="logo">
+            🩺 MEDICINA+
+        </div>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#corpo">Corpo Humano</a>
+            <a href="#alunos">Alunos</a>
+            <a href="#especialidades">Especialidades</a>
+        </nav>
+    </header>
+
+    <!-- CAPA -->
+    <section id="inicio" class="hero">
+
+        <div class="hero-texto">
+            <span class="tag">EDUCAÇÃO EM SAÚDE</span>
+
+            <h1>
+                Conheça o
+                <span>Corpo Humano</span>
+            </h1>
+
+            <p>
+                Um espaço educativo para aprender sobre anatomia,
+                órgãos, sistemas do corpo humano e as principais
+                áreas da Medicina.
+            </p>
+
+            <button onclick="mostrarMensagem()">
+                🔎 Explorar Medicina
+            </button>
+        </div>
+
+        <div class="hero-coracao">
+            <div class="coracao">🫀</div>
+        </div>
+
+    </section>
+
+    <!-- CORPO HUMANO -->
+    <section id="corpo" class="secao">
+
+        <div class="titulo">
+            <span>ANATOMIA</span>
+            <h2>Conheça o Corpo Humano</h2>
+            <p>
+                Clique nos cartões para conhecer algumas partes
+                importantes do organismo.
+            </p>
+        </div>
+
+        <div class="orgaos">
+
+            <div class="card-orgao">
+                <div class="imagem-orgao">🧠</div>
+                <h3>Cérebro</h3>
+                <p>
+                    Coordena diversas funções do organismo,
+                    incluindo pensamento, memória e movimentos.
+                </p>
+            </div>
+
+            <div class="card-orgao">
+                <div class="imagem-orgao">🫀</div>
+                <h3>Coração</h3>
+                <p>
+                    Órgão muscular responsável por bombear o sangue
+                    para diferentes partes do corpo.
+                </p>
+            </div>
+
+            <div class="card-orgao">
+                <div class="imagem-orgao">🫁</div>
+                <h3>Pulmões</h3>
+                <p>
+                    Participam da respiração e das trocas de gases
+                    entre o organismo e o ambiente.
+                </p>
+            </div>
+
+            <div class="card-orgao">
+                <div class="imagem-orgao">🦴</div>
+                <h3>Ossos</h3>
+                <p>
+                    Formam o esqueleto, ajudam na sustentação
+                    e protegem estruturas internas.
+                </p>
+            </div>
+
+            <div class="card-orgao">
+                <div class="imagem-orgao">🩸</div>
+                <h3>Sangue</h3>
+                <p>
+                    Transporta oxigênio, nutrientes e outras
+                    substâncias pelo organismo.
+                </p>
+            </div>
+
+            <div class="card-orgao">
+                <div class="imagem-orgao">🧬</div>
+                <h3>DNA</h3>
+                <p>
+                    Contém informações genéticas fundamentais
+                    para o funcionamento e desenvolvimento dos seres vivos.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ALUNOS -->
+    <section id="alunos" class="secao alunos">
+
+        <div class="titulo">
+            <span>NOSSA TURMA</span>
+            <h2>Alunos de Medicina</h2>
+            <p>
+                Conheça os estudantes e suas características.
+            </p>
+        </div>
+
+        <div class="alunos-grid">
+
+            <article class="aluno">
+                <div class="avatar azul">👨🏻‍⚕️</div>
+                <h3>Lucas Almeida</h3>
+                <span class="curso">Cardiologia</span>
+
+                <ul>
+                    <li>⭐ Excelente em anatomia</li>
+                    <li>🫀 Interesse em cardiologia</li>
+                    <li>📚 Muito dedicado aos estudos</li>
+                </ul>
+            </article>
+
+            <article class="aluno">
+                <div class="avatar rosa">👩🏻‍⚕️</div>
+                <h3>Mariana Santos</h3>
+                <span class="curso">Pediatria</span>
+
+                <ul>
+                    <li>⭐ Comunicativa</li>
+                    <li>👶 Interesse em pediatria</li>
+                    <li>💙 Gosta de trabalhar em equipe</li>
+                </ul>
+            </article>
+
+            <article class="aluno">
+                <div class="avatar verde">👨🏽‍⚕️</div>
+                <h3>Gabriel Costa</h3>
+                <span class="curso">Neurologia</span>
+
+                <ul>
+                    <li>⭐ Excelente raciocínio</li>
+                    <li>🧠 Interesse em neurologia</li>
+                    <li>🔬 Gosta de pesquisas</li>
+                </ul>
+            </article>
+
+            <article class="aluno">
+                <div class="avatar roxo">👩🏽‍⚕️</div>
+                <h3>Beatriz Oliveira</h3>
+                <span class="curso">Dermatologia</span>
+
+                <ul>
+                    <li>⭐ Muito organizada</li>
+                    <li>🧴 Interesse em dermatologia</li>
+                    <li>📖 Excelente desempenho</li>
+                </ul>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ESPECIALIDADES -->
+    <section id="especialidades" class="especialidades">
+
+        <div class="titulo">
+            <span>MEDICINA</span>
+            <h2>Principais Especialidades</h2>
+        </div>
+
+        <div class="especialidades-grid">
+
+            <div class="especialidade">
+                <span>🫀</span>
+                <h3>Cardiologia</h3>
+                <p>Área relacionada ao coração e ao sistema cardiovascular.</p>
+            </div>
+
+            <div class="especialidade">
+                <span>🧠</span>
+                <h3>Neurologia</h3>
+                <p>Área dedicada ao sistema nervoso.</p>
+            </div>
+
+            <div class="especialidade">
+                <span>👶</span>
+                <h3>Pediatria</h3>
+                <p>Cuidados médicos relacionados à saúde de crianças e adolescentes.</p>
+            </div>
+
+            <div class="especialidade">
+                <span>🦴</span>
+                <h3>Ortopedia</h3>
+                <p>Área relacionada ao aparelho locomotor.</p>
+            </div>
+
+            <div class="especialidade">
+                <span>🩺</span>
+                <h3>Clínica Médica</h3>
+                <p>Atuação ampla na avaliação e acompanhamento de pacientes.</p>
+            </div>
+
+            <div class="especialidade">
+                <span>🔬</span>
+                <h3>Patologia</h3>
+                <p>Estudo das doenças e das alterações provocadas por elas.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CURIOSIDADE -->
+    <section class="curiosidade">
+
+        <div>
+            <span>💡 VOCÊ SABIA?</span>
+
+            <h2>
+                A Medicina combina conhecimento,
+                tecnologia e cuidado humano.
+            </h2>
+
+            <p>
+                Estudar Medicina envolve diferentes áreas do conhecimento,
+                como anatomia, fisiologia, biologia e muitas outras.
+            </p>
+
+            <button onclick="mostrarCuriosidade()">
+                Ver curiosidade
+            </button>
+
+            <p id="curiosidadeTexto"></p>
+        </div>
+
+        <div class="medico-ilustracao">
+            👨‍⚕️
+        </div>
+
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <div class="footer-logo">
+            🩺 MEDICINA+
+        </div>
+
+        <p>
+            Projeto educativo sobre Medicina e Corpo Humano.
+        </p>
+
+        <p class="copyright">
+            © 2026 Medicina+ | Projeto escolar
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
