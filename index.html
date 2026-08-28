@@ -4,287 +4,758 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Medicina - Corpo Humano</title>
+    <title>MedLife | Blog de Medicina</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --azul: #087ea4;
+            --azul-escuro: #07556f;
+            --verde: #20b486;
+            --claro: #f4fbfd;
+            --branco: #ffffff;
+            --texto: #183642;
+            --cinza: #6b7d85;
+            --sombra: 0 10px 30px rgba(0, 80, 110, 0.12);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--claro);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        /* CABEÇALHO */
+        header {
+            background: linear-gradient(135deg, #07556f, #08a4c7);
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #7fffd4;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #7fffd4;
+        }
+
+        #tema {
+            border: none;
+            background: rgba(255,255,255,.2);
+            color: white;
+            padding: 9px 13px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 570px;
+            display: flex;
+            align-items: center;
+            padding: 70px 7%;
+            background:
+                linear-gradient(rgba(2,55,75,.72), rgba(2,55,75,.72)),
+                url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1800&q=80")
+                center/cover;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.05;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: #72f5ce;
+        }
+
+        .hero p {
+            font-size: 19px;
+            margin-bottom: 30px;
+            color: #e5faff;
+        }
+
+        .botao {
+            display: inline-block;
+            background: var(--verde);
+            color: white;
+            padding: 14px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .botao:hover {
+            transform: translateY(-3px);
+            background: #15966e;
+            box-shadow: 0 10px 20px rgba(0,0,0,.2);
+        }
+
+        /* SEÇÕES */
+        section {
+            padding: 80px 7%;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .titulo h2 {
+            font-size: 38px;
+            color: var(--azul-escuro);
+        }
+
+        .titulo p {
+            color: var(--cinza);
+            margin-top: 8px;
+        }
+
+        /* FATOS */
+        .fatos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .fato {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--sombra);
+            text-align: center;
+            transition: .3s;
+            border-top: 5px solid var(--verde);
+        }
+
+        .fato:hover {
+            transform: translateY(-8px);
+        }
+
+        .fato .icone {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .fato h3 {
+            color: var(--azul-escuro);
+            margin-bottom: 10px;
+        }
+
+        /* ARTIGOS */
+        .barra-busca {
+            max-width: 600px;
+            margin: 0 auto 35px;
+            display: flex;
+        }
+
+        .barra-busca input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #d4e9ee;
+            border-radius: 30px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .artigos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+
+        .card-conteudo {
+            padding: 24px;
+        }
+
+        .tag {
+            color: var(--verde);
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .card h3 {
+            margin: 8px 0;
+            color: var(--azul-escuro);
+        }
+
+        .card p {
+            color: var(--cinza);
+        }
+
+        /* QUIZ */
+        .quiz {
+            background: linear-gradient(135deg, #07556f, #08a4c7);
+            color: white;
+            border-radius: 30px;
+            padding: 50px;
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            box-shadow: var(--sombra);
+        }
+
+        .quiz h2 {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .pergunta {
+            margin: 25px 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .opcoes {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .opcoes button {
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .opcoes button:hover {
+            background: white;
+            color: var(--azul-escuro);
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* FAQ */
+        .faq {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(0,0,0,.07);
+            overflow: hidden;
+        }
+
+        .faq-pergunta {
+            width: 100%;
+            padding: 20px;
+            background: white;
+            border: none;
+            text-align: left;
+            font-size: 17px;
+            font-weight: bold;
+            color: var(--azul-escuro);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-resposta {
+            display: none;
+            padding: 0 20px 20px;
+            color: var(--cinza);
+        }
+
+        .faq-item.ativo .faq-resposta {
+            display: block;
+        }
+
+        /* NEWSLETTER */
+        .newsletter {
+            background: #dff7f5;
+            text-align: center;
+        }
+
+        .newsletter form {
+            max-width: 600px;
+            margin: 25px auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 30px;
+            outline: none;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background: #063c4f;
+            color: white;
+            text-align: center;
+            padding: 35px 7%;
+        }
+
+        footer p {
+            color: #c8e5eb;
+        }
+
+        /* MODO ESCURO */
+        body.escuro {
+            background: #101d22;
+            color: #e8f7fa;
+        }
+
+        body.escuro .fato,
+        body.escuro .card,
+        body.escuro .faq-item,
+        body.escuro .faq-pergunta {
+            background: #172a31;
+            color: #e8f7fa;
+        }
+
+        body.escuro .fato h3,
+        body.escuro .card h3,
+        body.escuro .faq-pergunta,
+        body.escuro .titulo h2 {
+            color: #71e7d1;
+        }
+
+        body.escuro .card p,
+        body.escuro .fato p,
+        body.escuro .faq-resposta,
+        body.escuro .titulo p {
+            color: #b8ced3;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 850px) {
+            nav a {
+                display: none;
+            }
+
+            .fatos,
+            .artigos {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 500px;
+            }
+
+            .newsletter form {
+                flex-direction: column;
+            }
+
+            .quiz {
+                padding: 35px 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- CABEÇALHO -->
-    <header class="topo">
-        <div class="logo">
-            🩺 MEDICINA+
-        </div>
+<header>
+    <div class="logo">⚕️ Med<span>Life</span></div>
 
-        <nav>
-            <a href="#inicio">Início</a>
-            <a href="#corpo">Corpo Humano</a>
-            <a href="#alunos">Alunos</a>
-            <a href="#especialidades">Especialidades</a>
-        </nav>
-    </header>
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#fatos">Fatos</a>
+        <a href="#artigos">Artigos</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#faq">FAQ</a>
+    </nav>
 
-    <!-- CAPA -->
-    <section id="inicio" class="hero">
+    <button id="tema" onclick="alternarTema()">🌙</button>
+</header>
 
-        <div class="hero-texto">
-            <span class="tag">EDUCAÇÃO EM SAÚDE</span>
-
-            <h1>
-                Conheça o
-                <span>Corpo Humano</span>
-            </h1>
-
-            <p>
-                Um espaço educativo para aprender sobre anatomia,
-                órgãos, sistemas do corpo humano e as principais
-                áreas da Medicina.
-            </p>
-
-            <button onclick="mostrarMensagem()">
-                🔎 Explorar Medicina
-            </button>
-        </div>
-
-        <div class="hero-coracao">
-            <div class="coracao">🫀</div>
-        </div>
-
-    </section>
-
-    <!-- CORPO HUMANO -->
-    <section id="corpo" class="secao">
-
-        <div class="titulo">
-            <span>ANATOMIA</span>
-            <h2>Conheça o Corpo Humano</h2>
-            <p>
-                Clique nos cartões para conhecer algumas partes
-                importantes do organismo.
-            </p>
-        </div>
-
-        <div class="orgaos">
-
-            <div class="card-orgao">
-                <div class="imagem-orgao">🧠</div>
-                <h3>Cérebro</h3>
-                <p>
-                    Coordena diversas funções do organismo,
-                    incluindo pensamento, memória e movimentos.
-                </p>
-            </div>
-
-            <div class="card-orgao">
-                <div class="imagem-orgao">🫀</div>
-                <h3>Coração</h3>
-                <p>
-                    Órgão muscular responsável por bombear o sangue
-                    para diferentes partes do corpo.
-                </p>
-            </div>
-
-            <div class="card-orgao">
-                <div class="imagem-orgao">🫁</div>
-                <h3>Pulmões</h3>
-                <p>
-                    Participam da respiração e das trocas de gases
-                    entre o organismo e o ambiente.
-                </p>
-            </div>
-
-            <div class="card-orgao">
-                <div class="imagem-orgao">🦴</div>
-                <h3>Ossos</h3>
-                <p>
-                    Formam o esqueleto, ajudam na sustentação
-                    e protegem estruturas internas.
-                </p>
-            </div>
-
-            <div class="card-orgao">
-                <div class="imagem-orgao">🩸</div>
-                <h3>Sangue</h3>
-                <p>
-                    Transporta oxigênio, nutrientes e outras
-                    substâncias pelo organismo.
-                </p>
-            </div>
-
-            <div class="card-orgao">
-                <div class="imagem-orgao">🧬</div>
-                <h3>DNA</h3>
-                <p>
-                    Contém informações genéticas fundamentais
-                    para o funcionamento e desenvolvimento dos seres vivos.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ALUNOS -->
-    <section id="alunos" class="secao alunos">
-
-        <div class="titulo">
-            <span>NOSSA TURMA</span>
-            <h2>Alunos de Medicina</h2>
-            <p>
-                Conheça os estudantes e suas características.
-            </p>
-        </div>
-
-        <div class="alunos-grid">
-
-            <article class="aluno">
-                <div class="avatar azul">👨🏻‍⚕️</div>
-                <h3>Lucas Almeida</h3>
-                <span class="curso">Cardiologia</span>
-
-                <ul>
-                    <li>⭐ Excelente em anatomia</li>
-                    <li>🫀 Interesse em cardiologia</li>
-                    <li>📚 Muito dedicado aos estudos</li>
-                </ul>
-            </article>
-
-            <article class="aluno">
-                <div class="avatar rosa">👩🏻‍⚕️</div>
-                <h3>Mariana Santos</h3>
-                <span class="curso">Pediatria</span>
-
-                <ul>
-                    <li>⭐ Comunicativa</li>
-                    <li>👶 Interesse em pediatria</li>
-                    <li>💙 Gosta de trabalhar em equipe</li>
-                </ul>
-            </article>
-
-            <article class="aluno">
-                <div class="avatar verde">👨🏽‍⚕️</div>
-                <h3>Gabriel Costa</h3>
-                <span class="curso">Neurologia</span>
-
-                <ul>
-                    <li>⭐ Excelente raciocínio</li>
-                    <li>🧠 Interesse em neurologia</li>
-                    <li>🔬 Gosta de pesquisas</li>
-                </ul>
-            </article>
-
-            <article class="aluno">
-                <div class="avatar roxo">👩🏽‍⚕️</div>
-                <h3>Beatriz Oliveira</h3>
-                <span class="curso">Dermatologia</span>
-
-                <ul>
-                    <li>⭐ Muito organizada</li>
-                    <li>🧴 Interesse em dermatologia</li>
-                    <li>📖 Excelente desempenho</li>
-                </ul>
-            </article>
-
-        </div>
-    </section>
-
-    <!-- ESPECIALIDADES -->
-    <section id="especialidades" class="especialidades">
-
-        <div class="titulo">
-            <span>MEDICINA</span>
-            <h2>Principais Especialidades</h2>
-        </div>
-
-        <div class="especialidades-grid">
-
-            <div class="especialidade">
-                <span>🫀</span>
-                <h3>Cardiologia</h3>
-                <p>Área relacionada ao coração e ao sistema cardiovascular.</p>
-            </div>
-
-            <div class="especialidade">
-                <span>🧠</span>
-                <h3>Neurologia</h3>
-                <p>Área dedicada ao sistema nervoso.</p>
-            </div>
-
-            <div class="especialidade">
-                <span>👶</span>
-                <h3>Pediatria</h3>
-                <p>Cuidados médicos relacionados à saúde de crianças e adolescentes.</p>
-            </div>
-
-            <div class="especialidade">
-                <span>🦴</span>
-                <h3>Ortopedia</h3>
-                <p>Área relacionada ao aparelho locomotor.</p>
-            </div>
-
-            <div class="especialidade">
-                <span>🩺</span>
-                <h3>Clínica Médica</h3>
-                <p>Atuação ampla na avaliação e acompanhamento de pacientes.</p>
-            </div>
-
-            <div class="especialidade">
-                <span>🔬</span>
-                <h3>Patologia</h3>
-                <p>Estudo das doenças e das alterações provocadas por elas.</p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- CURIOSIDADE -->
-    <section class="curiosidade">
-
-        <div>
-            <span>💡 VOCÊ SABIA?</span>
-
-            <h2>
-                A Medicina combina conhecimento,
-                tecnologia e cuidado humano.
-            </h2>
-
-            <p>
-                Estudar Medicina envolve diferentes áreas do conhecimento,
-                como anatomia, fisiologia, biologia e muitas outras.
-            </p>
-
-            <button onclick="mostrarCuriosidade()">
-                Ver curiosidade
-            </button>
-
-            <p id="curiosidadeTexto"></p>
-        </div>
-
-        <div class="medico-ilustracao">
-            👨‍⚕️
-        </div>
-
-    </section>
-
-    <!-- RODAPÉ -->
-    <footer>
-
-        <div class="footer-logo">
-            🩺 MEDICINA+
-        </div>
+<!-- HERO -->
+<section class="hero" id="inicio">
+    <div class="hero-content">
+        <h1>Conhecimento que <span>cuida.</span></h1>
 
         <p>
-            Projeto educativo sobre Medicina e Corpo Humano.
+            Um blog dedicado a informações sobre medicina, saúde,
+            prevenção e bem-estar de forma simples e acessível.
         </p>
 
-        <p class="copyright">
-            © 2026 Medicina+ | Projeto escolar
-        </p>
+        <a href="#artigos" class="botao">Explorar artigos ↓</a>
+    </div>
+</section>
 
-    </footer>
+<!-- FATOS -->
+<section id="fatos">
 
-    <script src="script.js"></script>
+    <div class="titulo">
+        <h2>🧠 Fatos interessantes sobre medicina</h2>
+        <p>Algumas curiosidades para você conhecer melhor o corpo humano.</p>
+    </div>
+
+    <div class="fatos">
+
+        <div class="fato">
+            <div class="icone">❤️</div>
+            <h3>O coração</h3>
+            <p>
+                O coração humano funciona como uma bomba muscular,
+                impulsionando o sangue por todo o organismo.
+            </p>
+        </div>
+
+        <div class="fato">
+            <div class="icone">🧠</div>
+            <h3>O cérebro</h3>
+            <p>
+                O cérebro coordena diversas funções do organismo,
+                incluindo movimentos, memória e processamento de informações.
+            </p>
+        </div>
+
+        <div class="fato">
+            <div class="icone">🦴</div>
+            <h3>O esqueleto</h3>
+            <p>
+                O esqueleto adulto possui normalmente 206 ossos,
+                que ajudam na sustentação e proteção do corpo.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ARTIGOS -->
+<section id="artigos">
+
+    <div class="titulo">
+        <h2>📚 Artigos recentes</h2>
+        <p>Conteúdos educativos sobre saúde e medicina.</p>
+    </div>
+
+    <div class="barra-busca">
+        <input
+            type="text"
+            id="busca"
+            placeholder="🔎 Pesquisar artigo..."
+            onkeyup="buscarArtigos()"
+        >
+    </div>
+
+    <div class="artigos">
+
+        <article class="card">
+            <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=900&q=80">
+
+            <div class="card-conteudo">
+                <span class="tag">Prevenção</span>
+                <h3>Por que a prevenção é importante?</h3>
+                <p>
+                    A prevenção pode ajudar na identificação precoce
+                    de diversos problemas de saúde.
+                </p>
+            </div>
+        </article>
+
+        <article class="card">
+            <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=900&q=80">
+
+            <div class="card-conteudo">
+                <span class="tag">Tecnologia</span>
+                <h3>Tecnologia na medicina</h3>
+                <p>
+                    Novas tecnologias estão transformando exames,
+                    diagnósticos e tratamentos médicos.
+                </p>
+            </div>
+        </article>
+
+        <article class="card">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=80">
+
+            <div class="card-conteudo">
+                <span class="tag">Saúde</span>
+                <h3>A importância do sono</h3>
+                <p>
+                    Dormir adequadamente está relacionado a diversas
+                    funções importantes do organismo.
+                </p>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+
+    <div class="quiz">
+
+        <h2>🩺 Quiz da Saúde</h2>
+
+        <p>Teste seus conhecimentos sobre o corpo humano.</p>
+
+        <div class="pergunta">
+            Qual órgão é responsável por bombear o sangue?
+        </div>
+
+        <div class="opcoes">
+            <button onclick="responder(false)">🧠 Cérebro</button>
+            <button onclick="responder(true)">❤️ Coração</button>
+            <button onclick="responder(false)">🫁 Pulmão</button>
+        </div>
+
+        <div id="resultado"></div>
+
+    </div>
+
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+
+    <div class="titulo">
+        <h2>❓ Perguntas frequentes</h2>
+        <p>Clique nas perguntas para visualizar as respostas.</p>
+    </div>
+
+    <div class="faq">
+
+        <div class="faq-item">
+            <button class="faq-pergunta" onclick="abrirFAQ(this)">
+                O que é medicina preventiva?
+                <span>＋</span>
+            </button>
+
+            <div class="faq-resposta">
+                É uma área voltada à prevenção de doenças e à promoção
+                da saúde, incluindo acompanhamento e hábitos saudáveis.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-pergunta" onclick="abrirFAQ(this)">
+                Quando devo procurar um médico?
+                <span>＋</span>
+            </button>
+
+            <div class="faq-resposta">
+                A avaliação médica é importante quando existem sintomas
+                persistentes, preocupações com a saúde ou para
+                acompanhamento preventivo.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-pergunta" onclick="abrirFAQ(this)">
+                Informações da internet substituem uma consulta?
+                <span>＋</span>
+            </button>
+
+            <div class="faq-resposta">
+                Não. Conteúdos online têm finalidade educativa e não
+                substituem avaliação, diagnóstico ou orientação de um
+                profissional de saúde.
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+
+    <h2>📩 Receba novidades sobre saúde</h2>
+
+    <p>
+        Cadastre seu e-mail para receber novos conteúdos do MedLife.
+    </p>
+
+    <form onsubmit="inscrever(event)">
+        <input
+            type="email"
+            id="email"
+            placeholder="Digite seu e-mail"
+            required
+        >
+
+        <button class="botao" type="submit">
+            Inscrever
+        </button>
+    </form>
+
+    <p id="mensagem"></p>
+
+</section>
+
+<footer>
+    <h3>⚕️ MedLife</h3>
+
+    <p>
+        Conteúdo educativo sobre medicina, saúde e bem-estar.
+    </p>
+
+    <br>
+
+    <small>
+        © 2026 MedLife — Este site possui finalidade educativa e não
+        substitui orientação médica profissional.
+    </small>
+</footer>
+
+<script>
+
+    // MODO ESCURO
+    function alternarTema() {
+        document.body.classList.toggle("escuro");
+
+        const botao = document.getElementById("tema");
+
+        if (document.body.classList.contains("escuro")) {
+            botao.innerHTML = "☀️";
+        } else {
+            botao.innerHTML = "🌙";
+        }
+    }
+
+    // QUIZ
+    function responder(correto) {
+
+        const resultado = document.getElementById("resultado");
+
+        if (correto) {
+            resultado.innerHTML = "✅ Muito bem! A resposta correta é o coração.";
+            resultado.style.color = "#72f5ce";
+        } else {
+            resultado.innerHTML = "❌ Não foi dessa vez. Tente novamente!";
+            resultado.style.color = "#ffb4b4";
+        }
+    }
+
+    // FAQ
+    function abrirFAQ(botao) {
+
+        const item = botao.parentElement;
+
+        item.classList.toggle("ativo");
+
+        const simbolo = botao.querySelector("span");
+
+        if (item.classList.contains("ativo")) {
+            simbolo.textContent = "−";
+        } else {
+            simbolo.textContent = "＋";
+        }
+    }
+
+    // BUSCA
+    function buscarArtigos() {
+
+        const termo = document
+            .getElementById("busca")
+            .value
+            .toLowerCase();
+
+        const cards = document.querySelectorAll(".card");
+
+        cards.forEach(card => {
+
+            const texto = card.innerText.toLowerCase();
+
+            if (texto.includes(termo)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+    }
+
+    // NEWSLETTER
+    function inscrever(event) {
+
+        event.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const mensagem = document.getElementById("mensagem");
+
+        mensagem.innerHTML =
+            "✅ Obrigado! " + email +
+            " foi cadastrado com sucesso.";
+
+        mensagem.style.color = "#087ea4";
+
+        document.getElementById("email").value = "";
+    }
+
+</script>
 
 </body>
 </html>
+fecado
